@@ -1,9 +1,10 @@
+import type { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { navigation } from '../../constants/navigation';
 import { cn } from '../../utils/cn';
 
-const icons: Record<string, JSX.Element> = {
+const icons: Record<string, ReactNode> = {
   dashboard: (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="2" y="2" width="7" height="7" rx="1.5" />

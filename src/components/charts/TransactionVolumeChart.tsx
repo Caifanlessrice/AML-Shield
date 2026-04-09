@@ -49,7 +49,7 @@ export function TransactionVolumeChart({ transactions }: Props) {
                 fontSize: '12px',
                 color: 'var(--color-text-primary)',
               }}
-              formatter={(value: number) => [`$${(value / 1_000_000).toFixed(2)}M`, 'Volume']}
+              formatter={(value) => [`$${(Number(value) / 1_000_000).toFixed(2)}M`, 'Volume']}
             />
             <Bar
               dataKey="volume"

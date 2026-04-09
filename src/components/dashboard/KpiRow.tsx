@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { getKpiStats } from '../../data';
 import { useAnimateNumber } from '../../hooks/useAnimateNumber';
 import { cn } from '../../utils/cn';
@@ -7,7 +8,7 @@ interface StatCardProps {
   value: number;
   suffix?: string;
   color?: string;
-  icon: JSX.Element;
+  icon: ReactNode;
 }
 
 function StatCard({ label, value, suffix, color, icon }: StatCardProps) {

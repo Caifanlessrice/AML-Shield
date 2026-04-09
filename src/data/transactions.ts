@@ -1,7 +1,7 @@
 import type { Transaction } from '../types';
 import { clients } from './clients';
 import {
-  resetSeed, generateId, randomFrom, randomDateTime, randomBetween, weightedRandom, randomFloat
+  resetSeed, generateId, randomFrom, randomDateTime, weightedRandom, randomFloat
 } from './generators';
 
 function generateTransactions(): Transaction[] {
