@@ -33,10 +33,10 @@ export function ClientsPage() {
 
   return (
     <PageTransition>
-      <div className="space-y-6">
+      <div className="space-y-8">
         <div>
-          <h1 className="text-2xl font-bold text-text-primary">Clients</h1>
-          <p className="text-sm text-text-secondary mt-1">{clients.length} registered clients across all jurisdictions</p>
+          <h1 className="text-3xl font-bold text-text-primary tracking-tight">Clients</h1>
+          <p className="text-base text-text-secondary mt-2">{clients.length} registered clients across all jurisdictions</p>
         </div>
 
         <div className="flex flex-wrap gap-3 items-center">
@@ -95,7 +95,7 @@ export function ClientsPage() {
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
         >
           {filtered.map(client => (
             <motion.div key={client.id} variants={fadeUp}>

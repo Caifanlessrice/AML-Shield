@@ -8,7 +8,7 @@ export function RecentAlertsFeed() {
   const recent = alerts.slice(0, 15);
 
   return (
-    <div className="bg-surface-raised border border-border rounded-xl p-5">
+    <div className="bg-surface-raised border border-border rounded-xl p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-semibold text-text-primary">Recent Alerts</h3>
         <span className="text-xs text-text-muted">{alerts.filter(a => a.status === 'new').length} unresolved</span>

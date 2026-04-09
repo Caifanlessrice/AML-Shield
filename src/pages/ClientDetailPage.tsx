@@ -44,18 +44,18 @@ export function ClientDetailPage() {
 
   return (
     <PageTransition>
-      <div className="space-y-6">
-        <Link to="/clients" className="text-sm text-text-muted hover:text-primary transition-colors inline-flex items-center gap-1">
+      <div className="space-y-8">
+        <Link to="/clients" className="text-sm text-text-muted hover:text-primary transition-colors inline-flex items-center gap-1.5">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 3L5 7l4 4"/></svg>
           Back to Clients
         </Link>
 
         {/* Client Header */}
-        <div className="bg-surface-raised border border-border rounded-xl p-6">
+        <div className="bg-surface-raised border border-border rounded-xl p-8">
           <div className="flex items-start justify-between">
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-2xl font-bold text-text-primary">{client.name}</h1>
+                <h1 className="text-3xl font-bold text-text-primary tracking-tight">{client.name}</h1>
                 {client.pepStatus && (
                   <span className="text-xs px-2.5 py-1 rounded-full bg-purple-500/15 text-purple-400 font-medium">PEP</span>
                 )}
@@ -70,7 +70,7 @@ export function ClientDetailPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t border-border">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 pt-6 border-t border-border">
             <div>
               <div className="text-xs text-text-muted">Status</div>
               <div className={cn(

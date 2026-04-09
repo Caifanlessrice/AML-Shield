@@ -11,7 +11,7 @@ export function GeoRiskMap() {
   const maxCount = Math.max(...regions.map(r => r.count));
 
   return (
-    <div className="bg-surface-raised border border-border rounded-xl p-5">
+    <div className="bg-surface-raised border border-border rounded-xl p-6">
       <h3 className="text-sm font-semibold text-text-primary mb-1">Geographic Risk Distribution</h3>
       <p className="text-xs text-text-muted mb-4">Client concentration by region</p>
       <div className="space-y-3">

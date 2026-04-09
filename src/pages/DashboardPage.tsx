@@ -20,18 +20,18 @@ const fadeUp = {
 export function DashboardPage() {
   return (
     <PageTransition>
-      <div className="space-y-6">
+      <div className="space-y-8">
         <div>
-          <h1 className="text-2xl font-bold text-text-primary">Risk Overview</h1>
-          <p className="text-sm text-text-secondary mt-1">Real-time AML compliance monitoring and alert management</p>
+          <h1 className="text-3xl font-bold text-text-primary tracking-tight">Risk Overview</h1>
+          <p className="text-base text-text-secondary mt-2">Real-time AML compliance monitoring and alert management</p>
         </div>
 
-        <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-6">
+        <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-8">
           <motion.div variants={fadeUp}>
             <KpiRow />
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <motion.div variants={fadeUp}>
               <RiskDistributionChart />
             </motion.div>
@@ -40,7 +40,7 @@ export function DashboardPage() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <motion.div variants={fadeUp}>
               <SarPipelineChart />
             </motion.div>

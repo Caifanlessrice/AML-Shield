@@ -29,10 +29,10 @@ export function TransactionsPage() {
 
   return (
     <PageTransition>
-      <div className="space-y-6">
+      <div className="space-y-8">
         <div>
-          <h1 className="text-2xl font-bold text-text-primary">Transaction Monitoring</h1>
-          <p className="text-sm text-text-secondary mt-1">Monitor and investigate transaction flows across all clients</p>
+          <h1 className="text-3xl font-bold text-text-primary tracking-tight">Transaction Monitoring</h1>
+          <p className="text-base text-text-secondary mt-2">Monitor and investigate transaction flows across all clients</p>
         </div>
 
         {/* Quick Stats */}

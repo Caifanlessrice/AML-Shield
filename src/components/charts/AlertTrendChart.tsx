@@ -8,7 +8,7 @@ export function AlertTrendChart() {
   }));
 
   return (
-    <div className="bg-surface-raised border border-border rounded-xl p-5">
+    <div className="bg-surface-raised border border-border rounded-xl p-6">
       <h3 className="text-sm font-semibold text-text-primary mb-4">Alert Trends (30 Days)</h3>
       <div className="h-48 min-h-[192px]">
         <ResponsiveContainer width="100%" height="100%">

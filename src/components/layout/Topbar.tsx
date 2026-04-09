@@ -20,7 +20,7 @@ export function Topbar({ sidebarWidth }: TopbarProps) {
 
   return (
     <header
-      className="sticky top-0 z-30 h-16 bg-surface/80 backdrop-blur-xl border-b border-border flex items-center justify-between px-6 transition-all duration-300"
+      className="sticky top-0 z-30 h-16 bg-surface/80 backdrop-blur-xl border-b border-border flex items-center justify-between px-8 lg:px-12 transition-all duration-300"
       style={{ marginLeft: sidebarWidth }}
     >
       <div className="relative flex-1 max-w-md">

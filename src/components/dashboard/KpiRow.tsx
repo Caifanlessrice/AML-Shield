@@ -15,11 +15,11 @@ function StatCard({ label, value, suffix, color, icon }: StatCardProps) {
   const animated = useAnimateNumber(value);
 
   return (
-    <div className="bg-surface-raised border border-border rounded-xl p-5 hover:border-primary/20 transition-all duration-200">
+    <div className="bg-surface-raised border border-border rounded-xl p-6 hover:border-primary/20 transition-all duration-200">
       <div className="flex items-start justify-between">
         <div>
           <div className="text-xs text-text-muted font-medium uppercase tracking-wider">{label}</div>
-          <div className={cn('text-2xl font-bold mt-2', color || 'text-text-primary')}>
+          <div className={cn('text-3xl font-bold mt-3', color || 'text-text-primary')}>
             {animated}{suffix}
           </div>
         </div>

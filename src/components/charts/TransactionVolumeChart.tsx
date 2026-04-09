@@ -23,7 +23,7 @@ export function TransactionVolumeChart({ transactions }: Props) {
   }, [transactions]);
 
   return (
-    <div className="bg-surface-raised border border-border rounded-xl p-5">
+    <div className="bg-surface-raised border border-border rounded-xl p-6">
       <h3 className="text-sm font-semibold text-text-primary mb-4">Transaction Volume (Weekly)</h3>
       <div className="h-48 min-h-[192px]">
         <ResponsiveContainer width="100%" height="100%">

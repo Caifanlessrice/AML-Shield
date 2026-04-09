@@ -12,7 +12,7 @@ export function AppShell() {
       <Sidebar collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} />
       <div className="transition-all duration-300" style={{ marginLeft: sidebarWidth }}>
         <Topbar sidebarWidth={0} />
-        <main className="p-6">
+        <main className="px-8 py-8 lg:px-12 lg:py-10 max-w-[1600px] mx-auto">
           <Outlet />
         </main>
       </div>

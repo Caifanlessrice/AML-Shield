@@ -10,7 +10,7 @@ export function SarPipelineChart() {
   ];
 
   return (
-    <div className="bg-surface-raised border border-border rounded-xl p-5">
+    <div className="bg-surface-raised border border-border rounded-xl p-6">
       <h3 className="text-sm font-semibold text-text-primary mb-1">SAR Pipeline</h3>
       <p className="text-xs text-text-muted mb-4">{sars.length} total Suspicious Activity Reports</p>
       <div className="h-48 min-h-[192px]">

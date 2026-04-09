@@ -13,7 +13,7 @@ export function RiskDistributionChart() {
   const total = data.reduce((s, d) => s + d.value, 0);
 
   return (
-    <div className="bg-surface-raised border border-border rounded-xl p-5">
+    <div className="bg-surface-raised border border-border rounded-xl p-6">
       <h3 className="text-sm font-semibold text-text-primary mb-4">Client Risk Distribution</h3>
       <div className="flex items-center gap-6">
         <div className="w-40 h-40 min-w-[160px] min-h-[160px]">
