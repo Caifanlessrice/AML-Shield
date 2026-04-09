@@ -5,10 +5,11 @@ import { clients } from '../../data';
 import { cn } from '../../utils/cn';
 
 interface TopbarProps {
-  sidebarWidth: number;
+  onMenuClick: () => void;
+  isMobile: boolean;
 }
 
-export function Topbar({ sidebarWidth }: TopbarProps) {
+export function Topbar({ onMenuClick, isMobile }: TopbarProps) {
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
@@ -19,10 +20,26 @@ export function Topbar({ sidebarWidth }: TopbarProps) {
     : [];
 
   return (
-    <header
-      className="sticky top-0 z-30 h-16 bg-surface/80 backdrop-blur-xl border-b border-border flex items-center justify-between px-8 lg:px-12 transition-all duration-300"
-      style={{ marginLeft: sidebarWidth }}
-    >
+    <header className="sticky top-0 z-30 h-14 md:h-16 bg-surface/80 backdrop-blur-xl border-b border-border flex items-center gap-3 px-4 md:px-8 lg:px-12 transition-all duration-300">
+      {/* Hamburger / sidebar toggle */}
+      <button
+        onClick={onMenuClick}
+        className="w-9 h-9 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-text-secondary hover:text-text-primary hover:border-primary/30 transition-all flex-shrink-0"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M2 4h12v1.5H2zM2 7.25h12v1.5H2zM2 10.5h12V12H2z" />
+        </svg>
+      </button>
+
+      {/* Logo on mobile */}
+      {isMobile && (
+        <div className="flex-shrink-0">
+          <span className="text-sm font-semibold text-primary">AML</span>
+          <span className="text-sm font-semibold text-text-primary"> Shield</span>
+        </div>
+      )}
+
+      {/* Search */}
       <div className="relative flex-1 max-w-md">
         <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
           <circle cx="7" cy="7" r="5" />
@@ -30,7 +47,7 @@ export function Topbar({ sidebarWidth }: TopbarProps) {
         </svg>
         <input
           type="text"
-          placeholder="Search clients..."
+          placeholder={isMobile ? "Search..." : "Search clients..."}
           value={search}
           onChange={e => { setSearch(e.target.value); setShowResults(true); }}
           onFocus={() => setShowResults(true)}
@@ -38,7 +55,7 @@ export function Topbar({ sidebarWidth }: TopbarProps) {
           className="w-full pl-10 pr-4 py-2 bg-surface-raised border border-border rounded-lg text-sm text-text-primary placeholder-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/25 transition-all"
         />
         {showResults && filteredClients.length > 0 && (
-          <div className="absolute top-full left-0 right-0 mt-2 bg-surface-raised border border-border rounded-lg shadow-2xl overflow-hidden">
+          <div className="absolute top-full left-0 right-0 mt-2 bg-surface-raised border border-border rounded-lg shadow-2xl overflow-hidden z-50">
             {filteredClients.map(client => (
               <button
                 key={client.id}
@@ -60,7 +77,7 @@ export function Topbar({ sidebarWidth }: TopbarProps) {
         )}
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
         <button
           onClick={toggleTheme}
           className="w-9 h-9 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-text-secondary hover:text-text-primary hover:border-primary/30 transition-all"

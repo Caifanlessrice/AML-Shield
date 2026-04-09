@@ -35,11 +35,11 @@ export function ClientsPage() {
     <PageTransition>
       <div className="space-y-8">
         <div>
-          <h1 className="text-3xl font-bold text-text-primary tracking-tight">Clients</h1>
-          <p className="text-base text-text-secondary mt-2">{clients.length} registered clients across all jurisdictions</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-text-primary tracking-tight">Clients</h1>
+          <p className="text-sm md:text-base text-text-secondary mt-1.5 md:mt-2">{clients.length} registered clients across all jurisdictions</p>
         </div>
 
-        <div className="flex flex-wrap gap-3 items-center">
+        <div className="flex flex-wrap gap-2 md:gap-3 items-center">
           <div className="relative flex-1 min-w-[240px] max-w-md">
             <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
               <circle cx="7" cy="7" r="5" />

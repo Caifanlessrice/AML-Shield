@@ -15,15 +15,15 @@ function StatCard({ label, value, suffix, color, icon }: StatCardProps) {
   const animated = useAnimateNumber(value);
 
   return (
-    <div className="bg-surface-raised border border-border rounded-xl p-6 hover:border-primary/20 transition-all duration-200">
+    <div className="bg-surface-raised border border-border rounded-xl p-4 md:p-6 hover:border-primary/20 transition-all duration-200">
       <div className="flex items-start justify-between">
         <div>
-          <div className="text-xs text-text-muted font-medium uppercase tracking-wider">{label}</div>
-          <div className={cn('text-3xl font-bold mt-3', color || 'text-text-primary')}>
+          <div className="text-[10px] md:text-xs text-text-muted font-medium uppercase tracking-wider">{label}</div>
+          <div className={cn('text-2xl md:text-3xl font-bold mt-2 md:mt-3', color || 'text-text-primary')}>
             {animated}{suffix}
           </div>
         </div>
-        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
           {icon}
         </div>
       </div>
@@ -35,7 +35,7 @@ export function KpiRow() {
   const stats = getKpiStats();
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
       <StatCard
         label="Open Cases"
         value={stats.openCases}

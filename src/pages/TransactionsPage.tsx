@@ -31,21 +31,21 @@ export function TransactionsPage() {
     <PageTransition>
       <div className="space-y-8">
         <div>
-          <h1 className="text-3xl font-bold text-text-primary tracking-tight">Transaction Monitoring</h1>
-          <p className="text-base text-text-secondary mt-2">Monitor and investigate transaction flows across all clients</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-text-primary tracking-tight">Transaction Monitoring</h1>
+          <p className="text-sm md:text-base text-text-secondary mt-1.5 md:mt-2">Monitor and investigate transaction flows across all clients</p>
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {[
             { label: 'Total Transactions', value: filtered.length.toLocaleString(), color: 'text-text-primary' },
             { label: 'Total Volume', value: `$${(totalVolume / 1_000_000).toFixed(1)}M`, color: 'text-primary' },
             { label: 'Flagged', value: flaggedCount.toString(), color: 'text-risk-high' },
             { label: 'Pending Review', value: filtered.filter(t => t.status === 'pending').length.toString(), color: 'text-risk-medium' },
           ].map(stat => (
-            <div key={stat.label} className="bg-surface-raised border border-border rounded-xl p-4">
-              <div className="text-xs text-text-muted">{stat.label}</div>
-              <div className={cn('text-xl font-bold mt-1', stat.color)}>{stat.value}</div>
+            <div key={stat.label} className="bg-surface-raised border border-border rounded-xl p-3 md:p-4">
+              <div className="text-[10px] md:text-xs text-text-muted">{stat.label}</div>
+              <div className={cn('text-lg md:text-xl font-bold mt-1', stat.color)}>{stat.value}</div>
             </div>
           ))}
         </div>
@@ -53,7 +53,7 @@ export function TransactionsPage() {
         <TransactionVolumeChart transactions={filtered} />
 
         {/* Filters */}
-        <div className="flex flex-wrap gap-3 items-center">
+        <div className="flex flex-wrap gap-2 md:gap-3 items-center overflow-x-auto">
           <div className="relative flex-1 min-w-[240px] max-w-md">
             <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
               <circle cx="7" cy="7" r="5" />

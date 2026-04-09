@@ -51,11 +51,11 @@ export function ClientDetailPage() {
         </Link>
 
         {/* Client Header */}
-        <div className="bg-surface-raised border border-border rounded-xl p-8">
+        <div className="bg-surface-raised border border-border rounded-xl p-5 md:p-8">
           <div className="flex items-start justify-between">
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-3xl font-bold text-text-primary tracking-tight">{client.name}</h1>
+                <h1 className="text-2xl md:text-3xl font-bold text-text-primary tracking-tight">{client.name}</h1>
                 {client.pepStatus && (
                   <span className="text-xs px-2.5 py-1 rounded-full bg-purple-500/15 text-purple-400 font-medium">PEP</span>
                 )}
@@ -98,7 +98,7 @@ export function ClientDetailPage() {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-1 bg-surface-raised border border-border rounded-lg p-1">
+        <div className="flex gap-1 bg-surface-raised border border-border rounded-lg p-1 overflow-x-auto">
           {tabs.map(tab => (
             <button
               key={tab.key}

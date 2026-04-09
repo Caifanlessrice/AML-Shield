@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { navigation } from '../../constants/navigation';
 import { cn } from '../../utils/cn';
 
@@ -30,9 +30,69 @@ const icons: Record<string, ReactNode> = {
 interface SidebarProps {
   collapsed: boolean;
   onToggle: () => void;
+  isMobile: boolean;
+  mobileOpen: boolean;
+  onMobileClose: () => void;
 }
 
-export function Sidebar({ collapsed, onToggle }: SidebarProps) {
+export function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onMobileClose }: SidebarProps) {
+  // Mobile: slide-in drawer
+  if (isMobile) {
+    return (
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.aside
+            initial={{ x: -280 }}
+            animate={{ x: 0 }}
+            exit={{ x: -280 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="fixed left-0 top-0 h-screen w-[280px] bg-sidebar border-r border-border z-50 flex flex-col shadow-2xl"
+          >
+            <div className="h-16 flex items-center px-5 gap-3 border-b border-border">
+              <button
+                onClick={onMobileClose}
+                className="w-8 h-8 rounded-lg bg-surface-overlay/50 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors flex-shrink-0"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4l8 8M12 4l-8 8" />
+                </svg>
+              </button>
+              <span className="text-base font-semibold text-primary tracking-wide">AML</span>
+              <span className="text-base font-semibold text-text-primary tracking-wide">Shield</span>
+            </div>
+
+            <nav className="flex-1 py-4 px-3 space-y-1">
+              {navigation.map(item => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  end={item.path === '/'}
+                  className={({ isActive }) => cn(
+                    'flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200',
+                    isActive
+                      ? 'bg-primary/15 text-primary'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-surface-raised'
+                  )}
+                >
+                  <span className="flex-shrink-0">{icons[item.icon]}</span>
+                  <span>{item.label}</span>
+                </NavLink>
+              ))}
+            </nav>
+
+            <div className="p-5 border-t border-border">
+              <div className="text-xs text-text-muted">
+                <div className="font-medium text-text-secondary">AML Shield v1.0</div>
+                <div className="mt-0.5">Compliance Dashboard</div>
+              </div>
+            </div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
+    );
+  }
+
+  // Desktop: fixed sidebar
   return (
     <motion.aside
       initial={false}

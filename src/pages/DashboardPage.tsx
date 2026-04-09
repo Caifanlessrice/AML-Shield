@@ -22,8 +22,8 @@ export function DashboardPage() {
     <PageTransition>
       <div className="space-y-8">
         <div>
-          <h1 className="text-3xl font-bold text-text-primary tracking-tight">Risk Overview</h1>
-          <p className="text-base text-text-secondary mt-2">Real-time AML compliance monitoring and alert management</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-text-primary tracking-tight">Risk Overview</h1>
+          <p className="text-sm md:text-base text-text-secondary mt-1.5 md:mt-2">Real-time AML compliance monitoring and alert management</p>
         </div>
 
         <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-8">
